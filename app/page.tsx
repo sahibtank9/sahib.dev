@@ -1,65 +1,180 @@
-import Image from "next/image";
+import Nav from '@/components/Nav'
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import Footer from '@/components/Footer'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Sahib Tank — Software Engineer',
+  description:
+    'Full-stack software engineer with 5+ years building scalable systems, developer tools, and product-grade web applications.',
+}
+
+const posts = [
+  {
+    year: '2024',
+    items: [
+      { label: 'Redesigned real-time data pipeline — 10× throughput improvement', href: '/work#realtime-pipeline' },
+      { label: 'Led migration of monolith to microservices across 6 domains', href: '/work#microservices-migration' },
+    ],
+  },
+  {
+    year: '2023',
+    items: [
+      { label: 'Built internal design system adopted by 4 product teams', href: '/work#design-system' },
+      { label: 'Architected multi-tenant SaaS platform from scratch', href: '/work#saas-platform' },
+    ],
+  },
+  {
+    year: '2022',
+    items: [
+      { label: 'Shipped end-to-end encryption layer for messaging feature', href: '/work#e2e-encryption' },
+      { label: 'Reduced CI/CD pipeline time from 28 min → 7 min', href: '/work#cicd-optimisation' },
+    ],
+  },
+  {
+    year: '2021',
+    items: [
+      { label: 'Joined current employer as Senior Software Engineer', href: '/about' },
+      { label: 'Contributed to open-source React state-management library', href: '/work#oss-contributions' },
+    ],
+  },
+  {
+    year: '2020',
+    items: [
+      { label: 'Published technical article on distributed caching — 40k reads', href: '/commonplace' },
+    ],
+  },
+  {
+    year: '2019',
+    items: [
+      { label: 'Promoted to Lead Engineer, managing a team of 5', href: '/about' },
+    ],
+  },
+  {
+    year: '2017',
+    items: [
+      { label: 'First full-time role — Software Engineer at a fintech startup', href: '/about' },
+    ],
+  },
+]
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      <Nav />
+      <main
+        style={{
+          maxWidth: 'var(--content-width)',
+          margin: '0 auto',
+          padding: '0 var(--page-px)',
+        }}
+      >
+        {/* Hero */}
+        <section
+          className="fade-up fade-up-1"
+          style={{ paddingTop: '4rem', paddingBottom: '3rem' }}
+        >
+          <h1 style={{ marginBottom: '1.25rem' }}>
+            Sahib Tank
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '1.05rem',
+              lineHeight: '1.75',
+              color: 'var(--color-body)',
+              maxWidth: '580px',
+            }}
+          >
+            I'm a Software Engineer based in{' '}
+            <strong>Ahmedabad, India</strong>. I build scalable systems,
+            developer tooling, and product-grade web applications. Currently
+            a Senior Engineer at{' '}
+            <a href="/about">Infynno Solutions</a>, where I lead frontend infrastructure.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <p
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: '1.05rem',
+              lineHeight: '1.75',
+              color: 'var(--color-body)',
+              maxWidth: '580px',
+              marginTop: '1rem',
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            I care deeply about system design, clean abstractions, and shipping
+            applications that{' '}
+            <em>actually works at scale</em>. When I'm not writing code I'm
+            reading, taking notes in my{' '}
+            <Link href="/commonplace">commonplace book</Link>, or contributing
+            to open source.
+          </p>
+        </section>
+
+        <hr className="section-divider" style={{ margin: '0 0 0' }} />
+
+        {/* Timeline list — mirrors rauchg.com's index */}
+        <section
+          className="fade-up fade-up-2"
+          style={{ paddingTop: '0', paddingBottom: '4rem' }}
+        >
+          {posts.map((group, gi) => (
+            <div key={group.year}>
+              {group.items.map((item, ii) => (
+                <Link
+                  key={ii}
+                  href={item.href}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    gap: '1.25rem',
+                    padding: '0.65rem 0',
+                    borderBottom: '1px solid var(--color-border)',
+                    textDecoration: 'none',
+                    transition: 'background 140ms',
+                    borderBottomColor:
+                      gi === posts.length - 1 &&
+                      ii === group.items.length - 1
+                        ? 'transparent'
+                        : 'var(--color-border)',
+                  }}
+                  className="hover-row"
+                >
+                  {/* Year badge — only show on first item of each group */}
+                  <span
+                    className="meta"
+                    style={{
+                      minWidth: '3rem',
+                      opacity: ii === 0 ? 1 : 0,
+                      userSelect: 'none',
+                    }}
+                  >
+                    {ii === 0 ? group.year : ''}
+                  </span>
+
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '0.95rem',
+                      color: 'var(--color-body)',
+                      lineHeight: '1.5',
+                      flex: 1,
+                      transition: 'color 140ms',
+                    }}
+                  >
+                    {item.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          ))}
+        </section>
       </main>
-    </div>
-  );
+      <Footer />
+
+      <style>{`
+        .hover-row:hover span:last-child { color: var(--color-accent); }
+      `}</style>
+    </>
+  )
 }
