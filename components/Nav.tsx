@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import ThemeToggle from './ThemeToggle'
 
 interface NavProps {
   name?: string
@@ -50,6 +51,7 @@ export default function Nav({ name = 'Sahib Tank' }: NavProps) {
         </Link>
 
         {/* Links */}
+        <div className='flex items-center gap-4'>
         <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'baseline' }}>
           {navLinks.slice(1).map(({ href, label }) => {
             const isActive =
@@ -67,6 +69,9 @@ export default function Nav({ name = 'Sahib Tank' }: NavProps) {
             )
           })}
           
+        </div>
+
+        <ThemeToggle />
         </div>
       </div>
     </nav>
