@@ -76,8 +76,6 @@
 }
 
 /* ─── Base Reset ─────────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -113,13 +111,7 @@ h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: var(--space-sm); }
 p { margin-bottom: var(--space-md); }
 p:last-child { margin-bottom: 0; }
 
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out);
-}
+
 a:hover { border-bottom-color: var(--color-accent); }
 
 strong { color: var(--color-ink); font-weight: 600; }
@@ -193,7 +185,7 @@ ul li { list-style-type: disc; }
 .fade-up-4 { animation-delay: 300ms; }
 .fade-up-5 { animation-delay: 380ms; }
 
-/* ─── Nav ────────────────────────────────────────────────────────────── */
+/* ───   ────────────────────────────────────────────────────────────── */
 .nav-link {
   font-family: var(--font-sans);
   font-size: 0.875rem;

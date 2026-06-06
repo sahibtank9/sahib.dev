@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -38,8 +39,7 @@ export default function AboutPage() {
               float: 'right',
               marginLeft: '2rem',
               marginBottom: '1rem',
-              width: '96px',
-              height: '96px',
+           
               borderRadius: '50%',
               background: 'var(--color-surface)',
               border: '2px solid var(--color-border)',
@@ -52,11 +52,11 @@ export default function AboutPage() {
             }}
             aria-hidden
           >
-            AM
+            <Image src="/avatar-new.jpg" alt="Sahib Tank" width={96} height={96} className='rounded-full' />
           </div>
 
           <p>
-            I'm Sahib Tank, a frontend engineer based in India with nearly 5 years
+            I'm Sahib Tank, a Frontend Engineer based in India with nearly 5 years
             of experience building web applications with React, Next.js, and
             TypeScript.
           </p>

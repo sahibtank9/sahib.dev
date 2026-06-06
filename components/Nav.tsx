@@ -15,63 +15,45 @@ const navLinks = [
   { href: '/commonplace', label: 'Commonplace' },
 ]
 
+const navLinkClass =
+  'border-b-0! font-sans text-sm tracking-[0.01em] transition-colors duration-(--duration-fast) hover:border-b-0! hover:text-ink'
+
 export default function Nav({ name = 'Sahib Tank' }: NavProps) {
   const pathname = usePathname()
 
   return (
-    <nav
-      style={{
-        maxWidth: 'var(--content-width)',
-        margin: '0 auto',
-        padding: '0 var(--page-px)',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'baseline',
-          justifyContent: 'space-between',
-          paddingTop: '2rem',
-          paddingBottom: '0',
-        }}
-      >
-        {/* Wordmark */}
+    <nav className="max-w-content mx-auto">
+      <div className="flex items-baseline justify-between pt-6 px-6">
         <Link
           href="/"
-          style={{
-            fontFamily: 'var(--font-serif)',
-            fontSize: '1rem',
-            fontWeight: 500,
-            color: 'var(--color-ink)',
-            letterSpacing: '-0.01em',
-            borderBottom: 'none',
-          }}
+          className="border-b-0! font-serif text-base font-medium tracking-[-0.01em] text-ink hover:border-b-0!"
         >
           {name}
         </Link>
 
-        {/* Links */}
-        <div className='flex items-center gap-4'>
-        <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'baseline' }}>
-          {navLinks.slice(1).map(({ href, label }) => {
-            const isActive =
-              href === '/'
-                ? pathname === '/'
-                : pathname.startsWith(href)
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={`nav-link${isActive ? ' active' : ''}`}
-              >
-                {label}
-              </Link>
-            )
-          })}
-          
-        </div>
+        <div className="flex items-center gap-4">
+          <div className="flex items-baseline gap-5">
+            {navLinks.slice(1).map(({ href, label }) => {
+              const isActive =
+                href === '/'
+                  ? pathname === '/'
+                  : pathname.startsWith(href)
 
-        <ThemeToggle />
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`${navLinkClass} ${
+                    isActive ? 'font-medium text-ink' : 'font-normal text-muted'
+                  }`}
+                >
+                  {label}
+                </Link>
+              )
+            })}
+          </div>
+
+          <ThemeToggle />
         </div>
       </div>
     </nav>
