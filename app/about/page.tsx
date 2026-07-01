@@ -52,7 +52,7 @@ export default function AboutPage() {
             }}
             aria-hidden
           >
-            <Image src="/avatar-new.jpg" alt="Sahib Tank" width={96} height={96} className='rounded-full' />
+            <Image src="/avatar-1.webp" alt="Sahib Tank" width={96} height={96} className='rounded-full' />
           </div>
 
           <p>
